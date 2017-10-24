@@ -9,8 +9,6 @@ function requestCountries() {
 
 export const RECEIVE_COUNTRIES = 'RECEIVE_COUNTRIES';
 function receiveCountries(countries) {
-    console.log("recieved")
-    console.log(countries);
     return {
         type: RECEIVE_COUNTRIES,
         countries

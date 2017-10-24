@@ -20,12 +20,12 @@ export const reducer = (state = {
     switch(action.type) {
         case REQUEST_COUNTRIES:
             return Object.assign({}, state, {
-                isFetching: true,
-                countryList: action.json
+                isFetching: true
             })
         case RECEIVE_COUNTRIES:
-            Object.assign({}, state, {
+            return Object.assign({}, state, {
                 isFetching: false,
+                countryList: action.countries
             })
         default:
             return state;

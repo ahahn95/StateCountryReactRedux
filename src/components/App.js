@@ -6,8 +6,8 @@ class App extends Component {
     render() {
         return (
             <div>
-                <DropDownList input={this.props.countries.countryList}/>
-                <DropDownList input={this.props.countries.countryList}/>
+                <DropDownList input={"Hi"}/>
+                <DropDownList input={"Hi"}/>
             </div>
         );
     }
