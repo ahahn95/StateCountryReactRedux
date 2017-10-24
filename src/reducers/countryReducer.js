@@ -1,18 +1,33 @@
-import { ADD_COUNTRIES } from "../actions/actions";
+//import { ADD_COUNTRIES } from "../actions/actions";
+import { REQUEST_COUNTRIES, RECEIVE_COUNTRIES} from "../actions/actions";
+// export const countryReducer = (state = initialState, action) => {
+//     switch(action.type) {
+//         case ADD_COUNTRIES:
+//             return Object.assign({}, state, {
+//                  countryList: action.countries
+//             })
+//         default:
+//             return state;
+//     }
+// }
 
-const initialState = {
-    countryList: []
-}
 
-export const countryReducer = (state = initialState, action) => {
+export const reducer = (state = {
+    isFetching: false,
+    countryList: [],
+    stateList: [],
+}, action) => {
     switch(action.type) {
-        case ADD_COUNTRIES:
+        case REQUEST_COUNTRIES:
             return Object.assign({}, state, {
-                 countryList: action.countries
+                isFetching: true,
+                countryList: action.json
+            })
+        case RECEIVE_COUNTRIES:
+            Object.assign({}, state, {
+                isFetching: false,
             })
         default:
             return state;
     }
 }
-
-
