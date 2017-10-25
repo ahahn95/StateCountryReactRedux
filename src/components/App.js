@@ -6,8 +6,8 @@ class App extends Component {
     render() {
         return (
             <div>
-                <DropDownList input={"Hi"}/>
-                <DropDownList input={"Hi"}/>
+                {!this.props.countries.isFetching && <DropDownList input={this.props.countries.countryList} />}
+                {!this.props.states.isFetching && <DropDownList input={this.props.states.stateList} />}
             </div>
         );
     }
@@ -15,8 +15,10 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
+    const { countryReducer, stateReducer } = state;
     return {
-        countries: state.countries
+        countries: countryReducer,
+        states: stateReducer
     }
 }
 

@@ -1,18 +1,19 @@
-import { REQUEST_COUNTRIES, RECEIVE_COUNTRIES} from "../actions/actions";
 
-export const countryReducer = (state = {
+import { REQUEST_STATES, RECIEVE_STATES} from "../actions/actions";
+
+export const stateReducer = (state = {
     isFetching: false,
-    countryList: [],
+    stateList: [],
 }, action) => {
     switch(action.type) {
-        case REQUEST_COUNTRIES:
+        case REQUEST_STATES:
             return Object.assign({}, state, {
                 isFetching: true
             })
-        case RECEIVE_COUNTRIES:
+        case RECIEVE_STATES:
             return Object.assign({}, state, {
                 isFetching: false,
-                countryList: action.countries
+                stateList: action.states
             })
         default:
             return state;

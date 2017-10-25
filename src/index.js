@@ -4,10 +4,9 @@ import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import App from './components/App';
-//import { addCountries } from './actions/actions';
-import {fetchCountries} from './actions/actions';
+import { fetchCountries, fetchStates } from './actions/actions';
 import { createLogger } from 'redux-logger'
-import  rootReducer from './reducers/index';
+import  rootReducer from './reducers/combineReducers';
 
 const loggerMiddleware = createLogger();
 
@@ -37,6 +36,7 @@ let store = createStore(
 // store.dispatch(addCountries(arr));
 
 store.dispatch(fetchCountries())
+store.dispatch(fetchStates())
 
 ReactDOM.render(
      <Provider store={ store }>

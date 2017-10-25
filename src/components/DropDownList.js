@@ -4,8 +4,8 @@ class DropDownList extends Component {
     render() {
         return (
             <select>
-                {/*{this.props.input.map(element =>*/}
-                {/*<option key={element.code}>{element.name}</option>)}*/}
+                {this.props.input.map(element =>
+                <option key={element.code}>{element.name}</option>)}
             </select>
         )
     }
