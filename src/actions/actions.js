@@ -4,7 +4,6 @@ export const REQUEST_COUNTRIES = 'REQUEST_COUNTRIES';
 export const RECEIVE_COUNTRIES = 'RECEIVE_COUNTRIES';
 export const REQUEST_STATES = 'REQUEST_STATES';
 export const RECEIVE_STATES = 'RECEIVE_STATES';
-export const SET_SELECTED_COUNTRY = 'SET_SELECTED_COUNTRY';
 
 function requestCountries() {
     return {
@@ -53,12 +52,5 @@ export function fetchStates(stateCode) {
         })
             .then(response => response.json())
             .then(response => dispatch(receiveStates(response)))
-    }
-}
-
-export function setCountrySelectedItem(country) {
-    return {
-        type: SET_SELECTED_COUNTRY,
-        country
     }
 }
