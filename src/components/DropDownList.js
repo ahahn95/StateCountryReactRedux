@@ -5,7 +5,7 @@ class DropDownList extends Component {
         return (
             <select onChange={this.props.handleChange}>
                 {this.props.input.map(element =>
-                <option key={element.code}>{element.name}</option>)}
+                <option value={element.code} key={element.code}>{element.name}</option>)}
             </select>
         )
     }
