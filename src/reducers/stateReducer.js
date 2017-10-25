@@ -1,5 +1,4 @@
-
-import { REQUEST_STATES, RECIEVE_STATES} from "../actions/actions";
+import { REQUEST_STATES, RECEIVE_STATES} from "../actions/actions";
 
 export const stateReducer = (state = {
     isFetching: false,
@@ -10,7 +9,7 @@ export const stateReducer = (state = {
             return Object.assign({}, state, {
                 isFetching: true
             })
-        case RECIEVE_STATES:
+        case RECEIVE_STATES:
             return Object.assign({}, state, {
                 isFetching: false,
                 stateList: action.states

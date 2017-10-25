@@ -16,27 +16,8 @@ let store = createStore(
         thunkMiddleware,loggerMiddleware
     ));
 
-// const USA = {
-//     code: 'US',
-//     name: 'United States',
-// };
-//
-// const RU = {
-//     code: 'RU',
-//     name: 'Russia'
-// };
-//
-// const BR = {
-//     code: 'BR',
-//     name: 'Brazil'
-// };
-//
-// const arr = [USA,RU,BR];
-//
-// store.dispatch(addCountries(arr));
-
 store.dispatch(fetchCountries())
-store.dispatch(fetchStates())
+store.dispatch(fetchStates('AU'))
 
 ReactDOM.render(
      <Provider store={ store }>

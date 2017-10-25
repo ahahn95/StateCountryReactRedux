@@ -3,10 +3,20 @@ import DropDownList from "./DropDownList";
 import { connect } from 'react-redux';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        console.log("Suh");
+
+    }
+
     render() {
         return (
             <div>
-                {!this.props.countries.isFetching && <DropDownList input={this.props.countries.countryList} />}
+                {!this.props.countries.isFetching && <DropDownList input={this.props.countries.countryList} handleChange={this.handleChange} />}
                 {!this.props.states.isFetching && <DropDownList input={this.props.states.stateList} />}
             </div>
         );
