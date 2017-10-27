@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import DropDownList from "./DropDownList";
 import { connect } from 'react-redux';
-import { store } from '../index.js'
-import {fetchCountries, fetchStates} from "../actions/actions";
+import { bindActionCreators } from 'redux'
+import {fetchCountries, fetchStates, setSelectedCountry} from "../actions/actions";
 
 class App extends Component {
     constructor(props) {
@@ -13,11 +13,11 @@ class App extends Component {
     }
 
     componentWillMount() {
-        store.dispatch(fetchCountries());
+        this.props.actions.fetchCountries();
     }
 
     handleChange(event) {
-        store.dispatch(fetchStates(event.target.value));
+        this.props.actions.fetchStates(event.target.value)
     }
 
     render() {
@@ -39,4 +39,14 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: {
+            fetchCountries: bindActionCreators(fetchCountries,dispatch),
+            fetchStates: bindActionCreators(fetchStates,dispatch),
+            setSelectedCountry : bindActionCreators(setSelectedCountry, dispatch)
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);
